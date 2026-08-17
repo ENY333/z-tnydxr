@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bundle version="1.0" xsi:schemaLocation="" xmlns="https://emsfs.autodesk.com/schema/manifest/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Identity>
+        <Publisher>Autodesk, Inc.</Publisher>
+        <DisplayName>Autodesk AutoCAD 2024 — Русский (Russian)</DisplayName>
+        <PLC>ACD</PLC>
+        <Release>2024</Release>
+        <BuildNumber>24.3.61.0</BuildNumber>
+        <UPI2>{995E0303-033E-3B35-B128-E01E5F4122DF}</UPI2>
+        <UpgradeCode>{2232E1BD-1A02-3B96-8ECA-D27D12C647F6}</UpgradeCode>
+        <ConstantId>{1D260F3F-89D1-4558-9A2B-CC7407F5CABA}</ConstantId>
+        <Signature>gWote8R7p+FAy/yGav8L618rQ0fctlHeo67B/Jgoruw=</Signature>
+        <Type>PRD</Type>
+    </Identity>
+    <Resources>
+        <Files>
+            <File id="featureJson">SetupRes/feature.json</File>
+        </Files>
+        <LocalizedResources>SetupRes/locale/%setuplang%/setup.xml</LocalizedResources>
+        <Images>
+            <Image id="ProductIconImage">SetupRes/icons/acad.svg</Image>
+            <Image id="ProductBrandImage">SetupRes/branding/acad.png</Image>
+            <Image id="ProductLogoImage">SetupRes/icons/acad.ico</Image>
+            <Image id="ProductARPIcon">SetupRes/icons/acad.ico</Image>
+        </Images>
+        <UIStyle style="Rosetta.Dark"/>
+    </Resources>
+    <Configuration>
+        <Conditions>
+            <Condition messageId="AcadStillRunning" state="RUNNING"><![CDATA[(%ADSK_RUNNING_PROC_LIST% CONTAINS acad.exe)]]></Condition>
+            <Condition messageId="xx" state="NOT_RECOMMENDED" type="SYSTEM_REQUIREMENT"><![CDATA[( %ADSK_MEMORY_RAM% < 4) ]]></Condition>
+            <Condition messageId="xx" state="NOT_APPLICABLE" type="SYSTEM_REQUIREMENT"><![CDATA[( %ADSK_MEMORY_RAM% < 2) ]]></Condition>
+            <Condition messageId="xx" state="NOT_APPLICABLE" type="SYSTEM_REQUIREMENT"><![CDATA[( %GRAPHICS_FEATURE_LEVEL% < 30 )]]></Condition>
+            <Condition messageId="hasInstalled" state="INSTALLED"><![CDATA[((%ADSK_WIN_INSTALLED_MSI% CONTAINS {28B89EEF-7101-0419-2102-CF3F3A09B77D}) AND (NOT(%ACAD_PRD_INSTALLED_VER% = 24.3.61.0)))]]></Condition>
+        </Conditions>
+        <Attributes/>
+        <AdditionalBundleInfo/>
+        <Platforms>
+            <Platform name="Windows" architecture="x64" minVersion="10.0.17763" useNTVersion="true"/>
+        </Platforms>
+        <Languages>
+            <Language langId="ru-RU"></Language>
+            <Language langId="en-US"></Language>
+        </Languages>
+        <Properties>
+            <Property property="GRAPHICS_FEATURE_LEVEL">
+                <GraphicsCheck/>
+            </Property>
+            <Property property="ACAD_INSTALL_PATH" defaultValue="%INSTALL_DEST%\AutoCAD 2024\">
+                <RegistrySearch id="SearchInstallLocation" key="SOFTWARE\Autodesk\AutoCAD\R24.3\InstalledProducts" name="" root="HKLM"/>
+            </Property>
+            <Property property="ADSK_PREVIOUS_INSTALLED_LOCATION" defaultValue="">
+                <RegistrySearch id="SearchInstallLocation" key="SOFTWARE\Autodesk\AutoCAD\R24.3\InstalledProducts" name="" root="HKLM"/>
+            </Property>
+            <Property property="ACAD_PRD_INSTALLED_VER">
+                <MsiSearch name="VersionString" productCode="{28B89EEF-7101-0419-2102-CF3F3A09B77D}"/>
+            </Property>
+        </Properties>
+        <Media>
+            <Disk diskLabel="acad2024" diskPromptId="DiskPrompt" defaultDisk="true"></Disk>
+        </Media>
+    </Configuration>
+    <Settings>
+        <Setting name="SUPPORT_CONTENT_ROOT" defaultVal="" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="SUPPORT_CONTENT_CUSTOM_PATH" defaultVal="" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="USE_PREVIOUS_INSTALLED_LOCATION" defaultVal="true" deployment="true" standalone="true"><![CDATA[]]></Setting>
+        <Setting name="LOCKSECURITYSETTINGS" defaultVal="0" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="SECURELOAD" defaultVal="1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACADProfile_TrustedPaths" defaultVal="" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACADProfile_TrustedDomains" defaultVal="*.autodesk.com;*.google-analytics.com;*.virtualearth.net" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="LEGACYCODESEARCH" defaultVal="0" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACADLspAsDoc" defaultVal="#0" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACOMP_EXPRESS_TOOLS" defaultVal="1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACOMP_MIGRATE" defaultVal="1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACAD_USE_ONLINE_CONTENT" defaultVal="#1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACAD_ENABLE_SEND_PC_NAME" defaultVal="#1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ACAD_ENABLE_ROUNDTRIP" defaultVal="#1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+        <Setting name="ADSK_DESKTOPSHORTCUT_1" defaultVal="1" deployment="true" standalone="false"><![CDATA[]]></Setting>
+    </Settings>
+    <Applications>
+        <Application sequence="1" launchApp="false" installAs="core" name="AutoCAD 2024" external="false" path="manifest/app.acad.ru-RU.xml" upi2="{964BA9DB-F969-33F8-9235-456446A61DD9}" upgradeCode="{DB61F1D6-76F3-3815-BA5A-EEB4CEF6E2B1}"/>
+        <Application sequence="2" installAs="optional" name="AutoCAD 2024 Offline Help" external="false" path="manifest/app.acadhelp.ru-RU.xml" upi2="{99DF6029-63B4-4398-9D2A-5A7116500AF2}" upgradeCode="{8BDBF802-7AE3-486D-BA37-DF171A3E7CAB}"/>
+        <Application sequence="3" installAs="optional" name="AutoCAD 2024 VBA Enabler" external="false" path="manifest/app.vbaext.xml" upi2="{DE265DF5-7699-4FEB-BF8D-1AF6DCF8DC49}" upgradeCode="{3D8A47EB-48E0-43AB-8C40-BCA21933CEF0}"/>
+        <Application sequence="4" installAs="optional" name="AutoCAD BlockIndexer 2024" external="true" path="manifest/app.blockreplace.xml" upi2="{2DAD07DE-F0E4-A7D5-81B0-8374A1BF978D}" upgradeCode="{54714327-3272-96D6-DA87-659DA7A80347}"/>
+        <Application sequence="5" installAs="optional" name="AutoCAD Activity Insights" external="false" path="manifest/app.dwggraph.xml" upi2="{895D3A30-940F-B79A-BC5F-E1A33DA8D05F}" upgradeCode="{A4F02E8A-B860-15C4-76B3-CBA21F6D735D}"/>
+        <Application sequence="6" installAs="optional" name="AutoCAD Open in Desktop" external="true" path="manifest/app.webfileopen.xml" upi2="{6C2A29CA-85CD-4E95-81F2-7D753772513E}" upgradeCode="{B0BB3835-1ECE-4C47-AA9B-DBE6B4CD4913}"/>
+        <Application sequence="7" installAs="optional" name="Autodesk Featured Apps" external="true" path="manifest/app.featuredapps.xml" upi2="{213447D4-28C3-449E-B340-246B5E58A3FB}" upgradeCode="{0BAAE145-5DA7-416C-B5C6-7A3C019098D5}"/>
+        <Application sequence="8" installAs="optional" name="Autodesk Save to Web and Mobile" external="true" path="manifest/app.savetoweb.xml" upi2="{ABF9BE0A-F046-42B6-A8DC-6CBBD86A34FF}" upgradeCode="{7FFBE6BA-D7C7-4862-AE89-C0FBA32D41B0}"/>
+        <Application sequence="9" installAs="optional" name="Autodesk App Manager" external="true" path="manifest/app.appmanager.xml" upi2="{C9977502-BD22-46D9-8B0D-7FD378614F8A}" upgradeCode="{3A6F5521-7790-4BAE-A6F9-13C5626388F8}"/>
+    </Applications>
+</Bundle>
